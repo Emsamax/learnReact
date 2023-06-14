@@ -4,10 +4,11 @@ import {useEffect, useState} from "react";
 import {NewTodosForm} from "./newTodosForm";
 import {TodoList} from "./todoList";
 
+
 function App() {
 
     const [todos, setTodos] = useState(() =>{
-        const localValue = localStorage.getItem("ITEMs")
+        const localValue = localStorage.getItem("ITEMS")
         if(localValue == null) return[]
         return JSON.parse(localValue)
     })
@@ -41,6 +42,7 @@ function App() {
                 {id: crypto.randomUUID(), title, completed: false},
             ]
         })
+
     }
 
     return (
