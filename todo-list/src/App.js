@@ -6,7 +6,7 @@ import {TodoList} from "./todoList";
 
 
 function App() {
-
+    const [editTodoTitle, setEditTodoTitle] = useState("")
     const [todos, setTodos] = useState(() =>{
         const localValue = localStorage.getItem("ITEMS")
         if(localValue == null) return[]
@@ -45,9 +45,23 @@ function App() {
 
     }
 
+     function editTodo(id){
+        setTodos(currentTodos => {
+            // eslint-disable-next-line array-callback-return
+            return currentTodos.map(todo => {
+                if(todo.id === id){
+                    currentTodos.filter(todo => todo.id !== id)
+                    setEditTodoTitle(todo.title)
+                    return todo
+                }
+            })
+        })
+    }
+
+
     return (
         <>
-            <NewTodosForm onSubmit={addTodo}/>
+            <NewTodosForm onSubmit={addTodo} editTodo={editTodo}/>
             <h1 className={"header"}>Todo list</h1>
             <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
 
