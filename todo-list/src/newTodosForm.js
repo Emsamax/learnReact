@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export function NewTodosForm({onSubmit, editTodo}){
+export function NewTodosForm({onSubmit}){
     const [newItem, setNewItem] = useState("")
     function handelSubmit(e) {
         e.preventDefault()

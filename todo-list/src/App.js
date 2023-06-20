@@ -45,7 +45,7 @@ function App() {
 
     }
 
-     function editTodo(id){
+    function editTodo(id){
         setTodos(currentTodos => {
             // eslint-disable-next-line array-callback-return
             return currentTodos.map(todo => {
@@ -61,7 +61,7 @@ function App() {
 
     return (
         <>
-            <NewTodosForm onSubmit={addTodo} editTodo={editTodo}/>
+            <NewTodosForm onSubmit={addTodo}/>
             <h1 className={"header"}>Todo list</h1>
             <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
 

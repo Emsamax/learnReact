@@ -1,4 +1,10 @@
-export function TodoItem({completed, id, title, toggleTodo, deleteTodo, editTodo}){
+export function TodoItem({completed, id, title, toggleTodo, deleteTodo}){
+
+    const editTodo = (id) => {
+        deleteTodo(id);
+
+    }
+
     return(
         <li>
             <label>
